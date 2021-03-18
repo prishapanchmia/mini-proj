@@ -1,0 +1,14 @@
+{% extends "page/article_header.html" %}
+{% block content %}
+<p>Blog stories</p>
+<form method="GET">{% csrf_token %}
+<input type="search" name = "idd" placeholder="Enter ID" label="Seacrh By ID"/>
+<input type="search" name= "titlename" placeholder = "First Proj" label = "search By tite"/>
+<button type="submit">Search</button>
+</form>
+{% for i in qs %}
+<ul>
+<li>{{i.title}}<a href='{{ i.get_absolute_url }}'>Click Here</a>
+<a href='{{ i.get_delete_url }}'>Delete</a></li></ul>
+	{% endfor %}
+{% endblock %}

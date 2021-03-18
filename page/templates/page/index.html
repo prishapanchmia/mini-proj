@@ -1,0 +1,99 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link href='style.css' rel='stylesheet'> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CO-Story</title>
+    </head>
+    <body>
+      <!-- header -->
+        <header class="text-gray-700 body-font">
+             <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center" >
+			 
+               <a href="./index.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                
+                 <div style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                <span><a href="{% url 'page:page-home' %}" class="ml-5 text-3xl">CO-Story </a></span>
+              </div>  
+              </a>
+
+              <nav class="md:ml-auto md:mr-5 flex flex-wrap items-center text-base fixed-center text-xl">
+           <a href="{% url 'page:page-home' %}" class="mr-5 hover:text-gray-900">HOME</a>
+           <a href="{% url 'page:page-create' %}" class="mr-5 hover:text-gray-900">MY COVID STORY</a>
+           <a href="{% url 'page:page-alltestimonials' %}" class="mr-5 hover:text-gray-900">TESTIMONIALS</a>
+           <a href="{% url 'page:page-ourteam' %}" class="mr-5 hover:text-gray-900">OUR TEAM</a>
+         </nav>
+            </div>
+          </header>
+		  <div class="container">
+		  <style>
+			body {
+				background: url("https://cfsw.org/wp-content/uploads/when-wear-mask-in-public-advice-cdc-e1586288268484.jpg" );
+				background-size: cover;
+				background-repeat: repeat;
+				background-attachment: scroll;
+				font-family: Arial; 
+				color: white;
+			}
+			</style>
+			</div>
+          {% block content %}
+        <!-- about info -->
+          <!-- <section class="text-black body-font">
+            <div class="container px-8 py-10 mx-auto">
+              <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-left">
+                  <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                </svg>
+                <p class="leading-relaxed text-base text-center">The world as we know it was taken by a storm which caught us all by surprise and unpreparedness when the COVID-19 pandemic struck. It has been almost ten months since the outbreak was declared as a pandemic and yet there are a number of people even today who have barely any information regarding what happens after you receive the disease. This blog is to help all these people who just want more information about the treatment and who can give better responses than those who've been through this nightmarish disease. We would appreciate any amount of information that you could share from which someone can be benefited.
+                </p>
+              </div>
+            </div>
+          </section> -->
+		 <!-- <div class="container">
+		  <img src="https://cfsw.org/wp-content/uploads/when-wear-mask-in-public-advice-cdc-e1586288268484.jpg" width:"600" height:"700"> -->
+          <div style="font-style:italic; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+            <span><p class="leading-relaxed text-lg text-left text-black py-8 mx-20">The world as we know it was taken by a storm which caught us all by surprise and unpreparedness when the COVID-19 pandemic struck. It has been almost a year since the outbreak was declared as a pandemic and yet there are a number of people who have barely any information regarding what happens after you receive the disease. This blog is to help all these people who just want more information about the treatment and who can give better responses than those who've been through this nightmarish disease. We would appreciate any amount of information that you could share from which someone can be benefited. Here are some statistics for COVID-19:</p></span>
+		  </div>
+		  
+		  <section class="text-gray-700 body-font">
+  <div class="container px-5 py-18 mx-auto">
+    <div class="flex flex-wrap -m-4 text-center">
+      <div class="p-4 sm:w-1/4 w-1/2">
+        <h2 class="title-font font-medium sm:text-xl text-xl text-gray-900"><li> {{qs.active}}</li></h2>
+        <p class="leading-relaxed">Active cases</p>
+      </div>
+      <div class="p-4 sm:w-1/4 w-1/2">
+        <h2 class="title-font font-medium sm:text-xl text-xl text-gray-900"><li>{{qs.deaths}}</li></h2>
+        <p class="leading-relaxed">Deaths</p>
+      </div>
+      <div class="p-4 sm:w-1/4 w-1/2">
+        <h2 class="title-font font-medium sm:text-xl text-xl text-gray-900"><li>{{qs.critical}}</li></h2>
+        <p class="leading-relaxed">Critical cases</p>
+      </div>
+      <div class="p-4 sm:w-1/4 w-1/2">
+        <h2 class="title-font font-medium sm:text-xl text-xl text-gray-900"><li>{{qs.recovered}}</li></h2>
+        <p class="leading-relaxed">Recovered cases</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--<li> 'Active Cases' :{{qs.active}},</li>
+          <li>'Deaths' : {{qs.deaths}},</li>
+          <li>'critical': {{qs.critical}},</li>
+         <!-- <li>'deaths': {{qs.deaths}},</li>
+          <li>'new_cases': {{qs.new_cases}},</li>
+          <li>'new_deaths':{{qs.new_deaths}},</li>
+          <li>'population':{{qs.population}},</li> 
+          <li>'recovered': {{qs.recovered}},</li>
+          <!--<li>'total_cases_per_million': {{qs.total_cases_per_million}},</li>
+          <li>'total_deaths_per_million': {{qs.total_deaths_per_million}},</li>
+          <li>'total_tests': {{qs.total_tests}},</li>
+          <li>'total_tests_per_million': {{qs.total_tests_per_million}}</li>-->
+    <!--</div> -->
+    {% endblock %}
+        </body>
+    </html>
