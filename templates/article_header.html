@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+<title>For the Blog</title>
+</head>
+
+<body>
+<p><a href="{% url 'page:page-home' %}">Home</a>|||||<a href="{% url 'page:page-list'%}"> List</a>|||||<a href="{% url 'page:page-create' %}">Create</a></p>
+{%block content %}
+<p>Hi welcome to my blog app</p>
+{% endblock %}
+
+
+</body>
+</html>

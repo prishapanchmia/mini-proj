@@ -1,0 +1,98 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href='style2.css' rel='stylesheet'> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO-Story</title>
+</head>
+
+  <header class="text-gray-700 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center" >
+      <a href="./index.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+       </svg>
+       <div style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+       <span class="ml-5 text-3xl ">Co-Story </span>
+     </div>
+     </a>
+     
+     <nav class="md:ml-auto md:mr-5 flex flex-wrap items-center text-base fixed-center text-xl">
+       <a href="./index.html" class="mr-5 hover:text-gray-900">HOME</a>
+       <a href="./yourTestimonial.html" class="mr-5 hover:text-gray-900">MY COVID STORY</a>
+       <a href="./testimonials.html" class="mr-5 hover:text-gray-900">TESTIMONIALS</a>
+       <a href="./ourTeam.html" class="mr-5 hover:text-gray-900">OUR TEAM</a>
+     </nav> -->
+  <!--  </div>
+    <br> -->
+  <!--   <center><big><font face="DIN Next Light" size = "6" color="black"><p style= "background-color:cadetblue"> TESTIMONIALS<p> </font></big></center> -->
+<!-- </header> -->
+{% extends "index.html" %}
+   {% block content %}
+   <header><center><big><font face="DIN Next Light" size = "6" color="black"><p style= "background-color:cadetblue"> TESTIMONIALS<p> </font></big></center></header>
+<body>      
+	<style>
+    body {
+		background: url("https://wallpaperaccess.com/full/1668903.jpg" ) no-repeat;
+		background-size: cover;
+		font-family: Arial; 
+		color: white;
+	}
+
+  </style>
+       <section class="text-gray-700 body-font overflow-hidden">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="-my-8">
+            <div class="py-8 flex flex-wrap md:flex-no-wrap">
+              <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                <br>
+              <font size="5"><span class="tracking-wide font-medium title-font bg-pink-200 text-black">MILD CASES</span></font>
+             </div>
+              <div class="md:flex-grow">
+                <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Home-quarantine and asymptomatic cases.</h2>
+                <p class="leading-relaxed">A majority of people with COVID-19 are expected to have relatively mild symptoms that resolve at home.</p>
+                <a href="{% url 'page:page-Mild' %}" class="text-indigo-500 inline-flex items-center mt-4" name="Mild_testimonial">View all testimonials
+                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="py-8 flex border-t-2 border-gray-200 flex-wrap md:flex-no-wrap">
+              <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                <br>
+                <font size="5"> <span class="tracking-wide font-medium title-font bg-pink-200 text-black" >MODERATE CASES</span></font>
+              </div>
+              <div class="md:flex-grow">
+                <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Home-quarantine and symptomatic cases. </h2>
+                <p class="leading-relaxed">Occurs if the mild symptoms which were being exhibited become worse. Generally, a moderate case of COVID-19 will run its course in about two weeks, according to a World Health Organization (WHO) report.</p>
+                <a href="{% url 'page:page-Moderate' %}" class="text-indigo-500 inline-flex items-center mt-4" name="Moderate_testimonial">View all testimonials
+                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="py-8 flex border-t-2 border-gray-200 flex-wrap md:flex-no-wrap">
+              <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                <br>
+                <font size="5"> <span class="tracking-wide font-medium title-font bg-pink-200 text-black">SEVERE CASES</span></font>
+              </div>
+              <div class="md:flex-grow">
+                <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Hospitalization required.</h2>
+                <p class="leading-relaxed">In about one in five patients, the disease will worsen, with about 14% of cases developing into severe disease in which patients may need supplemental oxygen. And 6% of cases become critical and may develop septic shock that can lead to stroke, heart or respiratory failure, failure of other organs or death.</p>
+                <a href="{% url 'page:page-Severe' %}" class="text-indigo-500 inline-flex items-center mt-4" name="Severe_testimonial">View all testimonials
+                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> 
+{% endblock %}
