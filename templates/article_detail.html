@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block content  %}
+<header>
+    <section class="text-gray-700 body-font bg-pink-200">
+        <h1><center><font face ="DIN Next Light" size = "6" color="black">TESTIMONIAL</font></center></h1>
+    </section>
+</header>
+<style>
+    body {
+		background: url("https://wallpaperaccess.com/full/1668903.jpg" ) no-repeat;
+		background-size: cover;
+		font-family: Arial; 
+		color: white;
+	}
+  </style>
+ <ul>
+<li style="color: black" ><p>NAME : {{queryset.name}}
+<br>
+EMAIL 	:	{{queryset.email}}
+<br>
+CITY	:	{{queryset.city}}
+<br>
+AGE		:	{{queryset.age_group}}
+<br>
+TESTIMONIAL :	{{queryset.description}}
+<br>
+
+<!--<br>
+DATE : {{queryset.Datetime}}-->
+</p></li>
+</ul>
+{% endblock %}
+

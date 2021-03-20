@@ -1,0 +1,29 @@
+{% block content %}
+ <header class="text-gray-700 body-font">
+             <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center" >
+       
+               <a href="./index.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                
+                 <div style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                <span><a href="{% url 'page:page-home' %}" class="ml-5 text-3xl">CO-Story </a></span>
+              </div>  
+              </a>
+
+              <nav class="md:ml-auto md:mr-5 flex flex-wrap items-center text-base fixed-center text-xl">
+           <a href="{% url 'page:page-home' %}" class="mr-5 hover:text-gray-900">HOME</a>
+           <a href="{% url 'page:page-create' %}" class="mr-5 hover:text-gray-900">MY COVID STORY</a>
+           <a href="{% url 'page:page-alltestimonials' %}" class="mr-5 hover:text-gray-900">TESTIMONIALS</a>
+           <a href="{% url 'page:page-ourteam' %}" class="mr-5 hover:text-gray-900">OUR TEAM</a>
+           {% if request.user.is_authenticated %}
+          <h4>Hi {{user.username}}</h4>
+           <a href="{% url 'account_logout' %}" class="mr-5 hover:text-gray-900">Logout</a>
+           {% else %}
+           <a href="{% url 'account_login' %}" class="mr-5 hover:text-gray-900">Login</a>
+           <a href="{% url 'account_signup'%}" class="mr-5 hover:text-gray-900">Signup</a>
+           {% endif %}
+         </nav>
+            </div>
+          </header>
+{% endblock %}

@@ -1,0 +1,190 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CO-Story</title>
+</head>
+
+<header class="text-gray-700 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center" >
+    <a href="./index.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+     </svg>
+     <div style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+     <span class="ml-5 text-3xl ">Co-Story </span>
+   </div>
+   </a>
+ 
+   <nav class="md:ml-auto md:mr-5 flex flex-wrap items-center text-base fixed-center text-xl">
+     <a href="./index.html" class="mr-5 hover:text-gray-900">HOME</a>
+     <a href="./yourTestimonial.html" class="mr-5 hover:text-gray-900">MY COVID STORY</a>
+     <a href="./testimonials.html" class="mr-5 hover:text-gray-900">TESTIMONIALS</a>
+     <a href="./ourTeam.html" class="mr-5 hover:text-gray-900">OUR TEAM</a>
+   </nav> -->
+<!--  </div>
+ </header> --> 
+ {% extends "index.html" %}
+   {% block content %} 
+<body>
+<style>
+    body {
+		background: url("https://wallpaperaccess.com/full/1668903.jpg" ) no-repeat;
+		background-size: cover;
+		font-family: Arial; 
+		color: white;
+	}
+
+  </style>
+  <!-- steps slides -->
+  <section class="text-gray-700 body-font bg-pink-200">
+    <!-- <div class="container px-5 py-24 mx-auto flex flex-wrap"> -->
+      <div class="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
+        <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+        </div>
+        <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">1</div>
+        <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+         <!-- <div class="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center">
+             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg> 
+          </div> -->
+          <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+            <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">Case selection</h2>
+            <p class="leading-relaxed">Between mild, moderate and severe cases of COVID-19, under which case would your story fit into?</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
+        <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+        </div>
+        <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">2</div>
+        <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+          <!-- <div class="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg> -->
+          </div>
+          <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+            <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">First symptoms</h2>
+            <p class="leading-relaxed">Start with the very first symptoms you experienced and mention the exact date if you can so that a timeline can be maintained.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
+        <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+        </div>
+        <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">3</div>
+        <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+          <!-- <div class="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+              <circle cx="12" cy="5" r="3"></circle>
+              <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
+            </svg>
+          </div> -->
+          <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+            <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">Details, details and more details</h2>
+            <p class="leading-relaxed">Mention your recovery details throughout your journey. Mention medicine intake and any other treatment methods that you recieved.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
+        <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+        </div>
+        <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">4</div>
+        <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+          <!-- <div class="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg> -->
+          </div>
+          <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+            <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">Post-recovery details</h2>
+            <p class="leading-relaxed">Mention all the cautionary steps you took to take care of your health after you had recovered from COVID-19.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- input slides -->
+ <section class="text-gray-700 body-font relative bg-indigo-200 border-t-8 border-white">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Write your own story.</h1>
+      <div >
+     <font face="DIN Next Light" size = "10" color="black"><p class="lg:w-2/3 mx-auto leading-relaxed text-lg font-style: italic">Share your experience. Help the world. </p></font>
+    </div>
+    </div>
+    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+      <div class="flex flex-wrap -m-2">
+        <div class="p-2 w-1/2">
+          <form method="POST">{% csrf_token %}
+          <input class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="Name" type="text" name="Name" required>
+        </div>
+        <div class="p-2 w-1/2">
+          <input class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="Email" type="email" name="Email" required>
+        </div>
+        <div class="p-2 w-1/2">
+          <input class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="State" type="State" name="State" required>
+        </div>
+        <div class="p-2 w-1/2">
+          <input class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="City" type="city" name="City" required>
+        </div>
+		
+		
+        <div class="col-span-6 sm:col-span-3 p-2 w-1/2">
+          <label for="country" class="block text-sm font-medium leading-5 text-gray-700">Type of case</label>
+          <select id="country" class="mt-1 block form-select w-full py-2 px-4 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" name="Type_of_case" required>
+            <option>---</option>
+            <option>Mild</option>
+            <option>Moderate</option>
+            <option>Severe</option>
+          </select>
+        </div>
+        <div class="col-span-6 sm:col-span-3 p-2 w-1/2">
+          <label for="country" class="block text-sm font-medium leading-5 text-gray-700">Age group</label>
+          <select id="country" class="mt-1 block form-select w-full py-2 px-4 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" name="Age_group" required>
+            <option>---</option>
+            <option>Upto 18</option>
+            <option>19-30</option>
+            <option>31-50</option>
+            <option>51-60</option>
+            <option>61-70</option>
+            <option>71 and older</option>
+          </select>
+        </div>
+		<!--
+		<div class="p-2 w-1/2">
+		<label for="country" class="block text-sm font-medium leading-5 text-gray-700">Date</label>
+          <input class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="Date" type="date" name="DateTime" required>
+        </div>
+		
+		<div class="p-2 w-1/2">
+		<label for="country" class="block text-sm font-medium leading-5 text-gray-700">Mention co-morbidity if any</label>
+          <input class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="" type="Co_morbidity" name="Co_morbidity" required>
+        </div>
+		-->
+        <div class="p-2 w-full">
+          <textarea class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-indigo-500 text-base px-4 py-2 resize-none block" placeholder="Your testimonial" name="Description"></textarea>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="p-2 w-full">
+          <button class="flex mx-auto text-white bg-indigo-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit" value="Save">Publish</button>
+        {% else %}
+        <h4>Please Login</h4>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
