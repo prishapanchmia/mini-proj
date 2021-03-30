@@ -1,0 +1,26 @@
+ {% extends "index.html" %}
+   {% block content %} 
+<body>
+<style>
+    body {
+    background: url("https://wallpaperaccess.com/full/1668903.jpg" ) no-repeat;
+    background-size: cover;
+    font-family: Arial; 
+    color: white;
+  }
+
+  </style>          
+  <h1 style="color : black">Add Comment</h1>
+           <form method="POST">{% csrf_token %}
+          
+        <div class="p-2 w-full">
+          <textarea class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-indigo-500 text-base px-4 py-2 resize-none block" placeholder="Comment" name="comment" style="color : black"></textarea>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="p-2 w-full" >
+          <button class="flex mx-auto text-white bg-indigo-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit" value="Save">Add Comment</button>
+          {% else %}
+          <h1 style="color : black">Please Login To Add Comment </h1>
+          {% endif %}
+
+{% endblock %}
