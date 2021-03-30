@@ -2,7 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 
 from django.shortcuts import render
 
-from .models import Article
+from .models import Article, Comment
 from django.http import Http404
 from django.urls import reverse
 from covid import Covid
@@ -85,7 +85,7 @@ def ArticleCreateView(request):
 	my_form=Article()
 
 	if request.method=="POST":
-		my_form=Article(name= request.POST.get("Name"),
+		my_form=Article(user = request.user,name= request.POST.get("Name"),
 		email = request.POST.get("Email"),
 		state =	request.POST.get("State"),
 		city =	request.POST.get("City"),
@@ -114,7 +114,18 @@ def ArticleCreateView(request):
 
 	return render(request,template_name,context)
 
-	
+def AddCommentView(request,id):
+	model = Comment()
+	article = get_object_or_404(Article,id=id)
+	template_name = "add_comment.html"
+	if request.method == 'POST':
+		model = Comment(user = request.user,body = request.POST['comment'],article = article)
+		model.save()
+		context = {
+		"queryset":article
+		}	
+		return render(request,'article_detail.html',context)
+	return render(request, template_name)
 
 class ArticleUpdateView(UpdateView):
 	template_name = 'yourTestimonial.html'

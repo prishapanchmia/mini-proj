@@ -29,5 +29,29 @@ TESTIMONIAL :	{{queryset.description}}
 DATE : {{queryset.Datetime}}-->
 </p></li>
 </ul>
+<div style="color: black" >
+<hr>
+<h2 style="color: black" >Comments...</h2>
+<br>
+<hr>
+
+ <a href = "{% url 'page:page-addcomment' queryset.id %}" style="color: black" >Add Comment..</a>
+{% if not queryset.comments.all %}
+<h4 style="color: black" > No Comments Yet..</h4>
+ {% else %}
+ <br>
+ 	{% for comment in queryset.comments.all %}
+ 		<strong>
+ 			{{comment.user}}
+ 			{{comment.date_added}}
+ 		</strong>
+ 		<br>
+ 		{{comment.body}}
+ 		{% endfor %}
+ 		<br><br>
+ 		<hr>
+
+ {% endif %}
+ <div>
 {% endblock %}
 

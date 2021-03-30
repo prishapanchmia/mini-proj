@@ -19,6 +19,7 @@ class Article(models.Model):
 	type_of_case =	models.CharField(max_length=20, default="")
 	age_group =		models.CharField(max_length=20, default="")
 	description =	models.TextField(default="",null=False,blank=False)
+
 	def get_absolute_url(self):
 		return reverse("page:page-detail",kwargs={"id":self.id})
 
@@ -27,3 +28,13 @@ class Article(models.Model):
 
 	def get_update_url(self):
 		return reverse("page:page-update",kwargs={"id":self.id})
+
+class Comment(models.Model):
+	user = models.ForeignKey(settings.AUTH_USER_MODEL,
+		on_delete=models.CASCADE)
+	article = models.ForeignKey(Article,on_delete=models.CASCADE,related_name='comments')
+	body = models.TextField()
+	date_added = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return '%s - %s' %(self.article.name,self.user)

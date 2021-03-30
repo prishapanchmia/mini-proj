@@ -4,7 +4,7 @@ from .views import (
 	
 	ArticleDetailView,
 	ArticleCreateView,
-	ArticleUpdateView,
+	ArticleUpdateView,AddCommentView,
 	ArticleDeleteView,ArticleMainPage
 	,ArticleListViewSevere,ArticleListViewModerate
 	,ArticleListViewMild,ArticleAll,ArticleOurTeam
@@ -24,4 +24,6 @@ path("Moderate/",ArticleListViewModerate,name="page-Moderate"),
 path("Severe/",ArticleListViewSevere,name="page-Severe"),
 path("testimonials/",ArticleAll,name="page-alltestimonials"),
 path("ourteam/",ArticleOurTeam,name="page-ourteam"),
+path("article/<int:id>/addcomment/",AddCommentView,name="page-addcomment"),
+
 ]

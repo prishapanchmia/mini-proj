@@ -1,5 +1,6 @@
 from django import forms
-from .models import Article
+from .models import Article,Comment
+
 
 class ArticleForm(forms.ModelForm):
 	name = forms.CharField(widget=forms.TextInput())
@@ -14,3 +15,11 @@ class ArticleForm(forms.ModelForm):
 		model=Article
 		fields=['name','email','state','city','type_of_case',
 		'age_group','description']
+class CommentForm(forms.ModelForm):
+	class Meta:
+		model = Comment
+		fields = ('name','body')
+		widgets = {
+		'body':forms.Textarea()
+
+		}
