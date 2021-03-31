@@ -35,7 +35,7 @@ DATE : {{queryset.Datetime}}-->
 <br>
 <hr>
 
- <a href = "{% url 'page:page-addcomment' queryset.id %}" style="color: black" >Add Comment..</a>
+ <a href = "{% url 'page:page-addcomment' queryset.id %}" style="color: blue"  >Click Here to Add Comment..</a>
 {% if not queryset.comments.all %}
 <h4 style="color: black" > No Comments Yet..</h4>
  {% else %}
@@ -47,11 +47,12 @@ DATE : {{queryset.Datetime}}-->
  		</strong>
  		<br>
  		{{comment.body}}
+ 		<br>
  		{% endfor %}
- 		<br><br>
+ 		
  		<hr>
 
  {% endif %}
- <div>
+
 {% endblock %}
 

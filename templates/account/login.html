@@ -1,17 +1,31 @@
-{% extends "account/base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href='style2.css' rel='stylesheet'> 
+    <title>Login</title>
+</head>
 {% load i18n %}
 {% load account socialaccount %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block head_title %}{% endblock %}
+
+<body>
 
 {% block content %}
-  <main>
-    <div class="container">
-      <section class="mb-4">
-        <div class="row wow fadeIn">
-          <div class='col-6 offset-3'>
-          <h1>{% trans "Sign In" %}</h1>
+
+     <section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto flex flex-wrap ">
+    <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+      <h1 class="title-font font-medium text-3xl text-gray-900">Welcome to our family!</h1>
+      <p class="leading-relaxed mt-4">Login to get access to your account and to add,delete and edit your testimonial as well as to comment on a testimonial or ask a question.</p>
+      <p class="leading-relaxed mt-4">Please sign up if you have not created an account with us.</p>
+    </div>
+    <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+      <h2 class="text-gray-900 text-lg font-medium title-font mb-5">{% trans "Login" %}</h2>
 
           {% get_providers as socialaccount_providers %}
 
@@ -43,8 +57,17 @@
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
-            <a class="btn btn-default" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-            <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+            <a class="btn btn-default" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a><br>
+            
+            <button class="btn btn-success" type="submit" style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px; ">{% trans "Sign In" %}</button>
+        
           </form>
           </div>
         </div>
