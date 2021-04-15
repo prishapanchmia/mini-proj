@@ -5,6 +5,7 @@
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
         <link href='style.css' rel='stylesheet'> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <title>CO-Story</title>
     </head>
     <body>
@@ -88,19 +89,38 @@
     </div>
   </div>
 </section>
-<!--<li> 'Active Cases' :{{qs.active}},</li>
-          <li>'Deaths' : {{qs.deaths}},</li>
-          <li>'critical': {{qs.critical}},</li>
-         <!-- <li>'deaths': {{qs.deaths}},</li>
-          <li>'new_cases': {{qs.new_cases}},</li>
-          <li>'new_deaths':{{qs.new_deaths}},</li>
-          <li>'population':{{qs.population}},</li> 
-          <li>'recovered': {{qs.recovered}},</li>
-          <!--<li>'total_cases_per_million': {{qs.total_cases_per_million}},</li>
-          <li>'total_deaths_per_million': {{qs.total_deaths_per_million}},</li>
-          <li>'total_tests': {{qs.total_tests}},</li>
-          <li>'total_tests_per_million': {{qs.total_tests_per_million}}</li>-->
-    <!--</div> -->
-    {% endblock %}
-        </body>
+
+<div>
+  <canvas id="myChart" width="50%" height="20" border-style= "solid"></canvas>
+
+</div>
+
+
+ 
+</body>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: {{ x|safe }},
+        datasets: [{
+            label: 'Total Number of Cases',
+            backgroundColor:'rgba(0, 0, 255, 0.2)',
+                    
+            borderColor: 'rgba(255, 99, 132, 1)',
+             data: {{y}}
+            }]
+          },
+    options: {
+      
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+   {% endblock %}
     </html>

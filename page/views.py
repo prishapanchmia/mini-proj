@@ -8,7 +8,7 @@ from django.urls import reverse
 from covid import Covid
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-
+from .utils import get_plot
 
 from django.views.generic import(
 	CreateView,
@@ -18,6 +18,9 @@ from django.views.generic import(
 	DeleteView
 	)
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 # credentials  --> put your credentials here
 
@@ -165,8 +168,14 @@ def ArticleMainPage(request):
 			i_dict = i
 		
 			break
+
+	df1 = pd.read_csv('coviddata.csv')
+	groups = df1.groupby('State/UnionTerritory').agg({'Confirmed':'sum'}).sort_values(by='Confirmed',ascending=False).head(10)
+	x , y = list(groups.Confirmed.index) , list(groups.Confirmed.values)
 	context ={
-	"qs" : i_dict
+	"qs" : i_dict,
+	"x":x,
+	"y":y
 	}
 	return render(request,'index.html',context)
 
