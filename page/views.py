@@ -2,7 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 
 from django.shortcuts import render
 
-from .models import Article, Comment
+from .models import Article, Comment, Profile
 from django.http import Http404
 from django.urls import reverse
 from covid import Covid
@@ -24,8 +24,16 @@ import matplotlib.pyplot as plt
 
 # credentials  --> put your credentials here
 
-
-
+def ProfileView(request):
+	user = request.user
+	template_name = 'profile.html'
+	queryset = get_object_or_404(Profile,user=user)
+	articles = Article.objects.filter(user = queryset.user)
+	context = {
+	'qs' : queryset,
+	'articles' : articles
+	}
+	return render(request,template_name,context)
 
 
 def ArticleDetailView(request,id):
@@ -38,6 +46,7 @@ def ArticleDetailView(request,id):
 
 def ArticleListViewMild(request):
 	qs = Article.objects.filter(type_of_case__icontains='Mild')
+	qs = qs.filter(verified=True)
 	template_name='Mild.html'
 	keyword_search = request.GET.get("search_keyword")
 
@@ -53,6 +62,7 @@ def ArticleListViewMild(request):
 
 def ArticleListViewModerate(request):
 	qs = Article.objects.filter(type_of_case__icontains='Moderate')
+	qs = qs.filter(verified=True)
 	template_name='Moderate.html'
 
 	keyword_search = request.GET.get("search_keyword")
@@ -98,6 +108,9 @@ def ArticleCreateView(request):
         
        # datetime = request.POST.get("DateTime")
 		)
+		files = request.POST.get('myFile')
+		my_form.verified = True
+		my_form.file = files
 		my_form.save()
 		context={
 		"queryset" : my_form

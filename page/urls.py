@@ -7,7 +7,7 @@ from .views import (
 	ArticleUpdateView,AddCommentView,
 	ArticleDeleteView,ArticleMainPage
 	,ArticleListViewSevere,ArticleListViewModerate
-	,ArticleListViewMild,ArticleAll,ArticleOurTeam
+	,ArticleListViewMild,ArticleAll,ArticleOurTeam,ProfileView
 )
 
 app_name='page'
@@ -25,5 +25,6 @@ path("Severe/",ArticleListViewSevere,name="page-Severe"),
 path("testimonials/",ArticleAll,name="page-alltestimonials"),
 path("ourteam/",ArticleOurTeam,name="page-ourteam"),
 path("article/<int:id>/addcomment/",AddCommentView,name="page-addcomment"),
+path("profile/",ProfileView,name="page-profile"),
 
 ]

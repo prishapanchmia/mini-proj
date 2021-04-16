@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 # Create your models here.
 from django.conf import settings
-
+from django.contrib.auth.models import User
 
 class Article(models.Model):
 	# OPTIONS =(('Upto 18','Upto 18'),('19-30','19-30'),('31-50','31-50')
@@ -19,7 +19,11 @@ class Article(models.Model):
 	type_of_case =	models.CharField(max_length=20, default="")
 	age_group =		models.CharField(max_length=20, default="")
 	description =	models.TextField(default="",null=False,blank=False)
+	verified = models.BooleanField(default=False)
+	file = models.FileField(upload_to ='uploads/')
 
+	def __str__(self):
+		return f'{self.user} {self.id}'
 	def get_absolute_url(self):
 		return reverse("page:page-detail",kwargs={"id":self.id})
 
@@ -38,3 +42,9 @@ class Comment(models.Model):
 
 	def __str__(self):
 		return '%s - %s' %(self.article.name,self.user)
+
+class Profile(models.Model):
+	user = models.OneToOneField(User,on_delete=models.CASCADE)
+	image = models.ImageField(default='default.jpg',upload_to='profile_pics')
+	def __str__(self):
+		return f'{self.user.username} Profile'
