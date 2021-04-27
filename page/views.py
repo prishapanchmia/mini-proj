@@ -2,7 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 
 from django.shortcuts import render
 
-from .models import Article, Comment, Profile
+from .models import Article, Comment, Profile, Help
 from django.http import Http404
 from django.urls import reverse
 from covid import Covid
@@ -36,13 +36,6 @@ def ProfileView(request):
 	return render(request,template_name,context)
 
 
-def ArticleDetailView(request,id):
-	template_name='article_detail.html'
-	queryset = get_object_or_404(Article,id=id)
-	context = {
-	"queryset" : queryset
-		}
-	return render(request,template_name,context)
 
 def ArticleListViewMild(request):
 	qs = Article.objects.filter(type_of_case__icontains='Mild')
@@ -91,6 +84,60 @@ def ArticleListViewSevere(request):
 
 	return render(request,template_name,context )
 
+def HelpListView(request):
+	qs = Help.objects.all()
+	template_name='help_list.html'
+	keyword_search = request.GET.get("search_keyword")
+
+	if keyword_search != '' and keyword_search is not None:
+		qs=qs.filter(category__icontains=keyword_search) | qs.filter(city__icontains=keyword_search )|qs.filter(state__icontains=keyword_search)|qs.filter(locality__icontains=keyword_search)
+
+	context = {
+	"qs" : qs
+	}
+
+	return render(request,template_name,context )
+
+def ArticleDetailView(request,id):
+	template_name='article_detail.html'
+	queryset = get_object_or_404(Article,id=id)
+	context = {
+	"queryset" : queryset
+		}
+	return render(request,template_name,context)
+
+def HelpDetailView(request,id):
+	template_name='help_detail.html'
+	queryset = get_object_or_404(Help,id=id)
+	context = {
+	"queryset" : queryset
+		}
+	return render(request,template_name,context)
+
+def HelpCreateView(request):
+	template_name = "yourhelp.html"
+	my_form = Help()
+
+	if request.method == "POST":
+		my_form = Help(user = request.user,
+			poc = request.POST.get("poc"),
+			state  = request.POST.get("state"),
+			city = request.POST.get("city"),
+			locality = request.POST.get("locality"),
+			category = request.POST.get("category"),
+			description = request.POST.get("description")
+			)
+		my_form.save()
+
+		context = {
+		'queryset' : my_form
+		}
+		return render(request,'help_detail.html',context)
+
+	context = {
+	"form" : my_form
+	}
+	return render(request,template_name,context)
 
 def ArticleCreateView(request):
 	template_name = 'yourTestimonial.html'
@@ -144,10 +191,8 @@ def AddCommentView(request,id):
 	return render(request, template_name)
 
 class ArticleUpdateView(UpdateView):
-	template_name = 'yourTestimonial.html'
-	queryset=Article.objects.all()
+	template_name = 'article_create.html'
 	
-
 	def get_object(self):
 		my_id=self.kwargs.get("id")
 		return get_object_or_404(Article,id=my_id)
@@ -155,6 +200,7 @@ class ArticleUpdateView(UpdateView):
 	def form_valid(self,form):
 		print(form.cleaned_data)
 		return super().form_valid(form)
+
 
 class ArticleDeleteView(DeleteView):
 	template_name='article_delete.html'

@@ -26,6 +26,7 @@
            <a href="{% url 'page:page-home' %}" class="mr-5 hover:text-gray-900">HOME</a>
            <a href="{% url 'page:page-create' %}" class="mr-5 hover:text-gray-900">MY COVID STORY</a>
            <a href="{% url 'page:page-alltestimonials' %}" class="mr-5 hover:text-gray-900">TESTIMONIALS</a>
+           <a href="{% url 'page:page-list_help' %}" class="mr-5 hover:text-gray-900">Help Services</a>
            <a href="{% url 'page:page-ourteam' %}" class="mr-5 hover:text-gray-900">OUR TEAM</a>
            {% if request.user.is_authenticated %}
            <a href="{% url 'page:page-profile' %}"class="mr-5 hover:text-gray-900">Hi {{user.username}}</a>
@@ -91,7 +92,7 @@
 </section>
 
 <div>
-  <canvas id="myChart" width="50%" height="20" border-style= "solid"></canvas>
+  <canvas style="background-color: white width:50% height :20% padding : 50px" id="myChart" width="50%" height="20" border-style= "solid"></canvas>
 
 </div>
 

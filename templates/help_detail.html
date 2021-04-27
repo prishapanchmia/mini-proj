@@ -14,27 +14,22 @@
 	}
   </style>
  <ul>
-<li style="color: black" ><p>NAME : {{queryset.name}}
+<li style="color: black" ><p>NAME : {{queryset.user}}
 <br>
-EMAIL 	:	{{queryset.email}}
+Person to contact 	:	{{queryset.poc}}
 <br>
-CITY	:	{{queryset.city}}
+State : {{queryset.state}} City : {{queryset.city}}
 <br>
-AGE		:	{{queryset.age_group}}
+Locality 	:	{{queryset.locality}}
 <br>
-TESTIMONIAL :	{{queryset.description}}
+Category 	:	{{queryset.category}}
 <br>
-
-{% if queryset.type_of_case == 'Mild' %}
-<button><a href="{% url 'page:page-Mild' %}">Back</a></button>
-{%elif queryset.type_of_case == 'Moderate' %}
-<button><a href="{% url 'page:page-Moderate' %}">Back</a></button>
-{%elif queryset.type_of_case == 'Severe' %}
-<button><a href="{% url 'page:page-Severe' %}">Back</a></button>
-{% endif %}
+Description :	{{queryset.description}}
+<br>
+<a href="{% url 'page:page-list_help' %}"><button>Back</button></a>
 <!--<br>
 DATE : {{queryset.Datetime}}-->
-</p></li>
+<!-- </p></li>
 </ul>
 <div style="color: black" >
 <hr>
@@ -59,7 +54,7 @@ DATE : {{queryset.Datetime}}-->
  		
  		<hr>
 
- {% endif %}
+ {% endif %} -->
 
 {% endblock %}
 
