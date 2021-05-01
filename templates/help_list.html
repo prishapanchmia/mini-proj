@@ -29,7 +29,7 @@
        {% block content %}
        <header>
     <section class="text-gray-700 body-font bg-pink-200">
-        <h1><center><font face ="DIN Next Light" size="6" color="black">Help Services</font></center></h1>
+      <header><center><big><font face="DIN Next Light" size = "6" color="black"><p style= "background-color:rgb(254, 215, 226)">HELP SERVICES<p> </font></big></center></header>
     </section>
 </header>
 <body>
@@ -42,16 +42,19 @@
 	}
 
   </style>
-  <a style = "color : black" href="{% url 'page:page-create_help' %}">Create an Help</a>
-  <br>
+ <!-- <a style= "background-color:rgb(158, 95, 160)" href="{% url 'page:page-create_help' %}">Click here to add a help service if you can!</a>
+  <br>-->
   <div class="self-end">
   <form method="GET" class="text-gray-700 body-font" class="form-inline my-2 my-lg-0">{% csrf_token %}
   <input type="search" name="search_keyword" label="Search By Keyword" font face ="DIN Next Light" size = "10" color="black" class="form-control mr-sm-2" type="search" placeholder="&#128269;">Search By Keyword</input>
  <br>
- 
  <button style="width:160;height:24; background-color:"white" type="submit" type="button" class="btn btn-outline-danger" ><font size = "4">Enter</font></button> 
 </form>
 </div>
+<a style= "background-color:rgb(158, 95, 160)" href="{% url 'page:page-create_help' %}">Click here to add a help service if you can!</a>
+
+<br>
+
   {%for i in qs%}
   <section class="text-gray-700 body-font">
   <div class="container px-5 py-20 mx-auto">
