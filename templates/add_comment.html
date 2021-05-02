@@ -9,8 +9,10 @@
     color: white;
   }
 
-  </style>          
-  <h1 style="color : black">Add Comment</h1>
+  </style>
+  <section class="text-gray-700 body-font bg-pink-200">        
+  <center><h1 style="font-size:x-large ; color : black">Add a comment</h1></center>
+</section>  
            <form method="POST">{% csrf_token %}
           
         <div class="p-2 w-full">
@@ -18,9 +20,9 @@
         </div>
         {% if user.is_authenticated %}
         <div class="p-2 w-full" >
-          <button class="flex mx-auto text-white bg-indigo-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit" value="Save">Add Comment</button>
+          <button class="flex mx-auto text-white bg-indigo-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit" value="Save">Publish</button>
           {% else %}
-          <h1 style="color : black">Please Login To Add Comment </h1>
+          <h1 style="color : black">Please login to add a comment! </h1>
           {% endif %}
 
 {% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+{% block content  %}
+<header>
+    <section class="text-gray-700 body-font bg-pink-200">
+        <h1><center><font face ="DIN Next Light" size = "6" color="black">TESTIMONIAL</font></center></h1>
+    </section>
+</header>
+<style>
+    body {
+		background: url("https://wallpaperaccess.com/full/1668903.jpg" ) no-repeat;
+		background-size: cover;
+		font-family: Arial; 
+		color: white;
+	}
+  </style>
+ <ul>
+<li style="color: black" ><p>Name : {{queryset.user}}
+<br>
+Person to contact 	:	{{queryset.poc}}
+<br>
+State : {{queryset.state}} City : {{queryset.city}}
+<br>
+Locality 	:	{{queryset.locality}}
+<br>
+Category 	:	{{queryset.category}}
+<br>
+Description :	{{queryset.description}}
+<br>
+<!--<a href="{% url 'page:page-list_help' %}"><button>Go back</button></a> -->
+<!--<br>
+DATE : {{queryset.Datetime}}-->
+<!-- </p></li>
+</ul>
+<div style="color: black" >
+<hr>
+<h2 style="color: black" >Comments...</h2>
+<br>
+<hr>
+
+ <a href = "{% url 'page:page-addcomment' queryset.id %}" style="color: blue"  >Click Here to Add Comment..</a>
+{% if not queryset.comments.all %}
+<h4 style="color: black" > No Comments Yet..</h4>
+ {% else %}
+ <br>
+ 	{% for comment in queryset.comments.all %}
+ 		<strong>
+ 			{{comment.user}}
+ 			{{comment.date_added}}
+ 		</strong>
+ 		<br>
+ 		{{comment.body}}
+ 		<br>
+ 		{% endfor %}
+ 		
+ 		<hr>
+
+ {% endif %} -->
+
+{% endblock %}
+

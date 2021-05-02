@@ -5,6 +5,7 @@
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
         <link href='style.css' rel='stylesheet'> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <title>CO-Story</title>
     </head>
     <body>
@@ -25,13 +26,14 @@
            <a href="{% url 'page:page-home' %}" class="mr-5 hover:text-gray-900">HOME</a>
            <a href="{% url 'page:page-create' %}" class="mr-5 hover:text-gray-900">MY COVID STORY</a>
            <a href="{% url 'page:page-alltestimonials' %}" class="mr-5 hover:text-gray-900">TESTIMONIALS</a>
+           <a href="{% url 'page:page-list_help' %}" class="mr-5 hover:text-gray-900">HELP SERVICES</a>
            <a href="{% url 'page:page-ourteam' %}" class="mr-5 hover:text-gray-900">OUR TEAM</a>
            {% if request.user.is_authenticated %}
-          <h4>Hi {{user.username}}</h4>
-           <a href="{% url 'account_logout' %}" class="mr-5 hover:text-gray-900">Logout</a>
+           <a href="{% url 'page:page-profile' %}"class="mr-5 hover:text-gray-900">Hi {{user.username}}</a>
+           <a href="{% url 'account_logout' %}" class="mr-5 hover:text-gray-900">LOGOUT</a>
            {% else %}
-           <a href="{% url 'account_login' %}" class="mr-5 hover:text-gray-900">Login</a>
-           <a href="{% url 'account_signup'%}" class="mr-5 hover:text-gray-900">Signup</a>
+           <a href="{% url 'account_login' %}" class="mr-5 hover:text-gray-900">LOGIN</a>
+           <a href="{% url 'account_signup'%}" class="mr-5 hover:text-gray-900">SIGN-UP</a>
            {% endif %}
          </nav>
             </div>
@@ -88,19 +90,38 @@
     </div>
   </div>
 </section>
-<!--<li> 'Active Cases' :{{qs.active}},</li>
-          <li>'Deaths' : {{qs.deaths}},</li>
-          <li>'critical': {{qs.critical}},</li>
-         <!-- <li>'deaths': {{qs.deaths}},</li>
-          <li>'new_cases': {{qs.new_cases}},</li>
-          <li>'new_deaths':{{qs.new_deaths}},</li>
-          <li>'population':{{qs.population}},</li> 
-          <li>'recovered': {{qs.recovered}},</li>
-          <!--<li>'total_cases_per_million': {{qs.total_cases_per_million}},</li>
-          <li>'total_deaths_per_million': {{qs.total_deaths_per_million}},</li>
-          <li>'total_tests': {{qs.total_tests}},</li>
-          <li>'total_tests_per_million': {{qs.total_tests_per_million}}</li>-->
-    <!--</div> -->
-    {% endblock %}
-        </body>
+
+<div>
+  <canvas style="background-color: white width:50% height :20% padding : 50px" id="myChart" width="50%" height="20" border-style= "solid"></canvas>
+
+</div>
+
+
+ 
+</body>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: {{ x|safe }},
+        datasets: [{
+            label: 'Total Number of Cases',
+            backgroundColor:'rgba(0, 0, 255, 0.2)',
+                    
+            borderColor: 'rgba(255, 99, 132, 1)',
+             data: {{y}}
+            }]
+          },
+    options: {
+      
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+   {% endblock %}
     </html>

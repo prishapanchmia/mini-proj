@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" display  = " inline-block" width = "150px" height = "150px" border-radius= "50%" bject-fit= "cover">
+        <div class="media-body">
+          <h2 style="color: black" class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ articles.email }}</p>
+        </div>
+      </div>
+      <h3 style="color: black" >Your Testimonials</h3>
+       {% for article in articles %}
+      	<a style="color: black" href = "{{article.get_absolute_url}}">{{article.name}}</a>
+        <br>
+      {% endfor %}
+    </div>
+{% endblock%}
+
