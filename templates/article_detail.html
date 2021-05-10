@@ -22,12 +22,14 @@ CITY	:	{{queryset.city}}
 <br>
 AGE		:	{{queryset.age_group}}
 <br>
+VERIFIED		:	{{queryset.verified}}
+<br>
 TESTIMONIAL :	{{queryset.description}}
 <br>
 
 {% if queryset.type_of_case == 'Mild' %}
 <br>
-
+<a href="{% url 'page:page-update' queryset.id %}">Update</a>
 <button class="flex mx-auto text-black bg-indigo-200 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-l" type="submit" value="Save"><a href="{% url 'page:page-Mild' %}">Go back</a></button>
 {%elif queryset.type_of_case == 'Moderate' %}
 <button class="flex mx-auto text-black bg-indigo-200 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-l" type="submit" value="Save"><a href="{% url 'page:page-Moderate' %}">Go back</a></button>
@@ -56,7 +58,7 @@ DATE : {{queryset.Datetime}}-->
  <br>
  	{% for comment in queryset.comments.all %}
  		<strong>
- 			{{comment.user}}
+ 			<a href='{% url "page:page-profile" comment.user.id %}'>{{comment.user}}</a>
  			{{comment.date_added}}
  		</strong>
  		<br>

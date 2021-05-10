@@ -22,10 +22,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+import image
 # credentials  --> put your credentials here
 
-def ProfileView(request):
-	user = request.user
+def ProfileView(request,user):
+	#user = request.user
 	template_name = 'profile.html'
 	queryset = get_object_or_404(Profile,user=user)
 	articles = Article.objects.filter(user = queryset.user)
@@ -87,11 +88,15 @@ def ArticleListViewSevere(request):
 def HelpListView(request):
 	qs = Help.objects.all()
 	template_name='help_list.html'
-	keyword_search = request.GET.get("search_keyword")
-
-	if keyword_search != '' and keyword_search is not None:
-		qs=qs.filter(category__icontains=keyword_search) | qs.filter(city__icontains=keyword_search )|qs.filter(state__icontains=keyword_search)|qs.filter(locality__icontains=keyword_search)
-
+	help_search = request.GET.get("help_type")
+	city_search = request.GET.get("city")
+	locality_search = request.GET.get('locality')
+	if city_search != '' and city_search is not None:
+		qs=qs.filter(city__icontains=city_search) 
+	if help_search != '' and help_search is not None:
+		qs = qs.filter(category__icontains= help_search)
+	if locality_search != '' and locality_search is not None:
+		qs = qs.filter(locality__icontains = locality_search)
 	context = {
 	"qs" : qs
 	}
@@ -155,9 +160,18 @@ def ArticleCreateView(request):
         
        # datetime = request.POST.get("DateTime")
 		)
-		files = request.POST.get('myFile')
-		my_form.verified = True
+
+		files = request.FILES['myfile']
+		print(str(files))
 		my_form.file = files
+		my_form.save()
+		
+		if image.check(str(files)):
+			my_form.verified = True
+			print("True")
+		else:
+			my_form.verified = False
+			print("False")
 		my_form.save()
 		context={
 		"queryset" : my_form
@@ -190,16 +204,15 @@ def AddCommentView(request,id):
 		return render(request,'article_detail.html',context)
 	return render(request, template_name)
 
-class ArticleUpdateView(UpdateView):
-	template_name = 'article_create.html'
-	
-	def get_object(self):
-		my_id=self.kwargs.get("id")
-		return get_object_or_404(Article,id=my_id)
+def ArticleUpdateView(request,id):
+	template_name = 'yourTestimonialupdate.html'
+	my_form = get_object_or_404(Article,id=id)
+	context={
+	"form" : my_form
+	}
 
-	def form_valid(self,form):
-		print(form.cleaned_data)
-		return super().form_valid(form)
+	return render(request,template_name,context)
+
 
 
 class ArticleDeleteView(DeleteView):
